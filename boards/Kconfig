@@ -3432,6 +3432,9 @@ endif
 if ARCH_BOARD_TEENSY_4X
 source "boards/arm/imxrt/teensy-4.x/Kconfig"
 endif
+if ARCH_BOARD_BEAGLEBONE_AI64_K5
+source "boards/arm/k5-j721e/beaglebone-ai64-k5/Kconfig"
+endif
 if ARCH_BOARD_FREEDOM_K28F
 source "boards/arm/kinetis/freedom-k28f/Kconfig"
 endif

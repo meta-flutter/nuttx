@@ -1,0 +1,146 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+if ARCH_CHIP_K5_J721E
+
+comment "k5 j721e Configuration Options"
+
+# Chip Capabilities
+
+config K5_J721E_HAVE_SCI1
+	bool
+	default n
+
+config K5_J721E_HAVE_SCI2
+	bool
+	default n
+
+config K5_J721E_HAVE_SPI1
+	bool
+	default n
+
+config K5_J721E_HAVE_SPI2
+	bool
+	default n
+
+config K5_J721E_HAVE_SPI3
+	bool
+	default n
+
+config K5_J721E_HAVE_SPI4
+	bool
+	default n
+
+config K5_J721E_HAVE_SPI5
+	bool
+	default n
+
+# Summary Configurations
+
+# Chip Selection
+
+choice
+	prompt "TI K5 J721E Chip Selection"
+	default ARCH_CHIP_K5_J721E
+
+config ARCH_CHIP_K5_J721E
+	bool "TI K5 J721E"
+	select ARCH_CORTEXR5
+	select ARCH_HAVE_MPU
+	select ARCH_USE_MPU
+	select ARM_HAVE_MPU_UNIFIED
+	select ARCH_HAVE_FPU
+	select ARMV7R_HAVE_DECODEFIQ
+
+endchoice # TI K5 J721E Chip Selection
+
+menu "K5 J721E Peripheral Support"
+
+config K5_J721E_MIBADC
+	bool "MibADC"
+	default n
+
+config K5_J721E_DCAN1
+	bool "Controller Area Network 1 (DCAN1)"
+	default n
+
+config K5_J721E_DCAN2
+	bool "Controller Area Network 1 (DCAN2)"
+	default n
+
+config K5_J721E_QEP
+	bool "Enhanced Quadrature Encoder Unit (eQEP)"
+	default n
+
+config K5_J721E_N2HET
+	bool "High-End Timer (N2HET)"
+	default n
+
+config K5_J721E_DCAN1
+	bool "Controller Area Network 1 (D"
+	default n
+
+config K5_J721E_SPI1
+	bool "SPI1"
+	default n
+	depends on K5_J721E_HAVE_SPI4
+	select SPI
+	select K5_J721E_SPI
+
+config K5_J721E_SPI2
+	bool "SPI2"
+	default n
+	depends on K5_J721E_HAVE_SPI2
+	select SPI
+	select K5_J721E_SPI
+
+config K5_J721E_SPI3
+	bool "SPI3"
+	default n
+	depends on K5_J721E_HAVE_SPI3
+	select SPI
+	select K5_J721E_SPI
+
+config K5_J721E_SPI4
+	bool "SPI4"
+	default n
+	depends on K5_J721E_HAVE_SPI4
+	select SPI
+	select K5_J721E_SPI
+
+config K5_J721E_SPI5
+	bool "SPI5"
+	default n
+	depends on K5_J721E_HAVE_SPI5
+	select SPI
+	select K5_J721E_SPI
+
+config K5_J721E_SCI1
+	bool "Serial Communication Interface 1 (SCI1)"
+	default n
+	select SCI1_SERIALDRIVER
+	select ARCH_HAVE_SERIAL_TERMIOS
+
+config K5_J721E_SCI2
+	bool "Serial Communication Interface 2 (SCI2)"
+	default n
+	depends on K5_J721E_HAVE_SCI2
+	select SCI1_SERIALDRIVER
+	select ARCH_HAVE_SERIAL_TERMIOS
+
+endmenu # K5_J721E Peripheral Support
+
+config K5_J721E_GIO_IRQ
+	bool "GIO pin interrupts"
+	---help---
+		Build in support for interrupting GIO pins
+
+config K5_J721E_SELFTEST
+	bool "Power-on Selftest"
+	default n
+	---help---
+		Enable power-on self-test of memories and ECC logic.
+
+endif # ARCH_CHIP_K5_J721E

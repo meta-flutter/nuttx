@@ -165,6 +165,7 @@ arch/arm - ARM-based micro-controllers
       arch/arm/include/imx1 and arch/arm/src/imx1
       arch/arm/include/imx6 and arch/arm/src/imx6
       arch/arm/include/imxrt and arch/arm/src/imxrt
+      arch/arm/include/k5-j721e
       arch/arm/include/kinetis and arch/arm/src/kinetis
       arch/arm/include/kl and arch/arm/src/kl
       arch/arm/include/lc823450 and arch/arm/src/lc823450

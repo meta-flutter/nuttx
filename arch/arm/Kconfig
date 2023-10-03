@@ -174,6 +174,17 @@ config ARCH_CHIP_IMXRT
 	---help---
 		NXP i.MX RT (ARM Cortex-M7) architectures
 
+config ARCH_CHIP_K5_J721E
+	bool "TI K5 J721E"
+	select ARCH_CORTEXR5
+	select ARCH_HAVE_MPU
+	select ARM_HAVE_MPU_UNIFIED
+	select ARCH_HAVE_FPU
+	select ARCH_USE_MPU
+	select ARMV7R_HAVE_DECODEFIQ
+	---help---
+		TI J721E K5 family
+
 config ARCH_CHIP_KINETIS
 	bool "NXP/Freescale Kinetis"
 	select ARCH_CORTEXM4
